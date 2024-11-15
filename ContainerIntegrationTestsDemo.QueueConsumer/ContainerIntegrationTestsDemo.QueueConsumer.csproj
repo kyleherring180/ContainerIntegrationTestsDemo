@@ -1,0 +1,15 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+    <PropertyGroup>
+        <TargetFramework>net8.0</TargetFramework>
+        <Nullable>enable</Nullable>
+        <ImplicitUsings>enable</ImplicitUsings>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\ContainerIntegrationTestsDemo.Application\ContainerIntegrationTestsDemo.Application.csproj" />
+      <ProjectReference Include="..\ContainerIntegrationTestsDemo.Contracts\ContainerIntegrationTestsDemo.Contracts.csproj" />
+      <ProjectReference Include="..\ContainerIntegrationTestsDemo.Model\ContainerIntegrationTestsDemo.Model.csproj" />
+    </ItemGroup>
+
+</Project>

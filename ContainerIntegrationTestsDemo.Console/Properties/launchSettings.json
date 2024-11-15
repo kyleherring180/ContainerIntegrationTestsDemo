@@ -1,0 +1,7 @@
+{
+  "profiles": {
+    "ContainerIntegrationTestsDemo.Console": {
+      "commandName": "Project"
+    }
+  }
+}
