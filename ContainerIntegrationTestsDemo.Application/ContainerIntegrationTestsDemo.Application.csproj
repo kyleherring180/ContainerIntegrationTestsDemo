@@ -14,4 +14,8 @@
       <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="9.0.0" />
     </ItemGroup>
 
+    <ItemGroup>
+      <Content Include="obj\Debug\net8.0\ContainerIntegrationTestsDemo.Application.csproj.CoreCompileInputs.cache" />
+    </ItemGroup>
+
 </Project>

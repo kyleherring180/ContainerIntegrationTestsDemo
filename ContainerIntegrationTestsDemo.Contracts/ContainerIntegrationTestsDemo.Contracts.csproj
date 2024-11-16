@@ -6,4 +6,8 @@
         <Nullable>enable</Nullable>
     </PropertyGroup>
 
+    <ItemGroup>
+      <Content Include="obj\Debug\net8.0\ContainerIntegrationTestsDemo.Contracts.csproj.CoreCompileInputs.cache" />
+    </ItemGroup>
+
 </Project>
