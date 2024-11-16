@@ -6,3 +6,4 @@ riderModule.iml
 
 #Rider
 *.idea
+.DS_Store

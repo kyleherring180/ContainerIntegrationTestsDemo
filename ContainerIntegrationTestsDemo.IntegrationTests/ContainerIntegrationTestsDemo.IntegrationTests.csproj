@@ -35,4 +35,9 @@
       <ProjectReference Include="..\ContainerIntegrationTestsDemo.QueueConsumer\ContainerIntegrationTestsDemo.QueueConsumer.csproj" />
     </ItemGroup>
 
+    <ItemGroup>
+        <None Include="IncomingEvents\**" CopyToOutputDirectory="PreserveNewest" LinkBase="IncomingEvents" />
+        <None Include="ExpectedResultsModelState\**" CopyToOutputDirectory="PreserveNewest" LinkBase="ExpectedResultsModelState" />
+    </ItemGroup>
+
 </Project>

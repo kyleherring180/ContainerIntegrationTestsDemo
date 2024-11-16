@@ -8,6 +8,7 @@ using ContainerIntegrationTestsDemo.IntegrationTests.Helpers;
 using ContainerIntegrationTestsDemo.IntegrationTests.Mocks;
 using ContainerIntegrationTestsDemo.Model;
 using ContainerIntegrationTestsDemo.QueueConsumer.Consumers;
+using ContainerIntegrationTestsDemo.QueueConsumer.Extensions;
 using FluentAssertions;
 using Microsoft.Data.SqlClient;
 using Microsoft.Extensions.DependencyInjection;
@@ -45,7 +46,9 @@ public class IntegrationTest1 : IClassFixture<MsSqlContainerFixture>, IAsyncLife
         var serviceCollection = new ServiceCollection()
             .AddApplication()
             .AddDataWithoutContext()
-            .AddMsSqlTestContainer(updatedConnectionString);
+            .AddMsSqlTestContainer(updatedConnectionString)
+            .AddQueueConsumer()
+            ;
 
         _serviceProvider = serviceCollection.BuildServiceProvider();
         await ScopedTestDataRepository().SetupDatabase();
@@ -63,12 +66,12 @@ public class IntegrationTest1 : IClassFixture<MsSqlContainerFixture>, IAsyncLife
         _output.WriteLine($"{ScopedTestDataRepository().GetCurrentConnectionString()}");
 
         //When: events arrive
-        //await WhenCustomerMessageArrives("IncomingEvents/C01_CustomerInformationEvent.xml");
+        await WhenCustomerMessageArrives("IncomingEvents/C01_CustomerInformationEvent.xml");
         
         //Then: situation in database after test
-        //ThenCustomerIsInExpectedState("ExpectedResultsModelState/C01_ExpectedCustomer.json");
+        ThenCustomerIsInExpectedState("ExpectedResultsModelState/C01_ExpectedCustomer.json");
         
-        Assert.True(true);
+        //Assert.True(true);
         
     }
 
