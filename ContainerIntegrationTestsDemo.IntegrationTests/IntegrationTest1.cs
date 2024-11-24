@@ -47,11 +47,11 @@ public class IntegrationTest1 : IClassFixture<MsSqlContainerFixture>, IAsyncLife
             .AddApplication()
             .AddDataWithoutContext()
             .AddMsSqlTestContainer(updatedConnectionString)
-            .AddQueueConsumer()
-            ;
+            .AddQueueConsumer();
 
         _serviceProvider = serviceCollection.BuildServiceProvider();
         await ScopedTestDataRepository().SetupDatabase();
+        await ScopedTestDataRepository().ClearDatabase();
     }
 
     public async Task DisposeAsync()
@@ -71,7 +71,7 @@ public class IntegrationTest1 : IClassFixture<MsSqlContainerFixture>, IAsyncLife
         //Then: situation in database after test
         ThenCustomerIsInExpectedState("ExpectedResultsModelState/C01_ExpectedCustomer.json");
         
-        //Assert.True(true);
+        Assert.True(true);
         
     }
 
